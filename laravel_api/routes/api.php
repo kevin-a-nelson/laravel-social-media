@@ -8,5 +8,6 @@ Route::post('save_contact', [App\Http\Controllers\ContactController::class, 'sav
 Route::get('login', [App\Http\Controllers\UserController::class, 'login']);
 Route::post('user', [App\Http\Controllers\UserController::class, 'create']);
 
+Route::get('posts/{id}', [App\Http\Controllers\PostController::class, 'show']);
 Route::get('posts', [App\Http\Controllers\PostController::class, 'index']);
 Route::post('post', [App\Http\Controllers\PostController::class, 'create']);

@@ -10,6 +10,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class PostController extends Controller
 {
 
+    public function show($id)
+    {
+        $post = Post::find($id);
+
+        return response()->json([
+            "id" => $post->id,
+            "title" => $post->title,
+            "text" => $post->text,
+            "user" => User::where('id', $post->userId)->first(),
+            "userId" => $post->userId
+        ]);
+    }
+
     public function index()
     {
         $posts = Post::orderByDesc("created_at")->get();
