@@ -15,8 +15,11 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
+
+            $user = User::where('email', $request->email)->first();
             return response()->json([
                 'message' => 'Login success',
+                'user' => $user,
                 'code' => 200
             ]);
         }
