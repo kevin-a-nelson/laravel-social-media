@@ -68,6 +68,17 @@ class PostController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return response()->json([
+            'message' => 'Post Deleted',
+            'code' => 200
+        ]);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
