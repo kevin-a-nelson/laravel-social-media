@@ -10,4 +10,5 @@ Route::post('user', [App\Http\Controllers\UserController::class, 'create']);
 
 Route::get('posts/{id}', [App\Http\Controllers\PostController::class, 'show']);
 Route::get('posts', [App\Http\Controllers\PostController::class, 'index']);
-Route::post('post', [App\Http\Controllers\PostController::class, 'create']);
+Route::post('posts', [App\Http\Controllers\PostController::class, 'create']);
+Route::post('posts/{id}', [App\Http\Controllers\PostController::class, 'update']);

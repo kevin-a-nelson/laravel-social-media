@@ -23,6 +23,20 @@ class PostController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->update($request->all());
+
+        return response()->json([
+            "id" => $post->id,
+            "title" => $post->title,
+            "text" => $post->text,
+            "user" => User::where('id', $post->userId)->first(),
+            "userId" => $post->userId
+        ]);
+    }
+
     public function index()
     {
         $posts = Post::orderByDesc("created_at")->get();
